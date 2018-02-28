@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Delighters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="delighters.js"></script>
+  </head>
+  <body>
+    <article>
+      <section data-delighter class="splash">
+         <h1 data-delighter class="right">Delighters.JS</h1>
+         <h2 data-delighter class="left">Add CSS animations to delight users as they scroll down.</h2>
+         <p data-delighter class="bottom">
+            By <a target="_blank" href="https://q42.com">Q42</a>
+         </p>
+      </section>
+      <section data-delighter="start:0.3">
+         <div class="box">1. Include the script</div>
+         <div class="box">2. Add data-delighter attributes</div>
+         <div class="box">3. Write your own CSS delighters</div>
+      </section>
+      <section>
+         <h2 data-delighter class="right">Features</h2>
+         <ul data-delighter>
+            <li>Declarative</li>
+            <li>Flexible</li>
+            <li>Light footprint</li>
+            <li>Framework-agnostic</li>
+            <li>Supports desktop, mobile &amp; tablets</li>
+            <li>Degrades gracefully to your default styling</li>
+         </ul>
+      </section>
+      <section data-delighter="start:0.25">
+         <h2 data-delighter class="left">Usage</h2>
+         <p>1. Include the script</p>
+         <pre>
+   &lt;script type="text/javascript" src="delighters.js"></pre>
+         <p>2. Add delighter attributes</p>
+         <pre>
+   &lt;div class="foo" data-delighter></pre>
+         <p>
+            3. Style the delighter (or its children) using built-in classes
+            <code>.started</code> and <code>.ended</code>
+         </p>
+         <pre>
+   /* when the library loads, each [data-delighter] 
+      gets the .delighter class */
+
+   .foo.delighter {
+      transition: all .3s ease-out;
+      transform: translateX(-100%);
+      opacity: 0;
+   }
+
+   /* the .started class is set when the top
+      of [data-delighter] is at 0.75 of the viewport 
+      (where 0 is top and 1 is bottom) */
+
+   .foo.delighter.started {
+      transform: none;
+      opacity: 1;
+   }
+
+   /* an extra .ended state is set when the bottom 
+      of [data-delighter] is at 0.75 of the viewport
+      (where 0 is top and 1 is bottom) */
+
+   .foo.delighter.started.ended {
+      border: solid red 10px;
+   }</pre>
+      </section>
+      <section>
+         <h2 data-delighter class="right">How it works</h2>
+         <ul data-delighter>
+            <li>Delighters.js toggles classes when you scroll down. You do the rest!</li>
+            <li>Each delighter gets a <code>.started</code> class when its <b>top</b> raises above 75% of the browser's viewport height</li>
+            <li>When the <b>bottom</b> of the delighter is at 75%, an extra class <code>.ended</code> is added</li>
+            <li>You can change any of these like so: <code>data-delighter="start:0.5;end:0.95;</code></li>
+            <li>Remember: 0 = top, 1 = bottom</li>
+            <li>Values outside the viewport are allowed, such as <code>start:1.2;end:-0.3</code></li>
+         </ul>
+      </section>
+      <section>
+         <h2 class="left">Debugging</h2>
+         <ul data-delighter="debug">
+            <li>Set the <code>data-delighter="debug"</code> flag to enable debugging for that delighter</li>
+            <li>This will give the delighter a red outline</li>
+            <li>Also, a dotted red hint line is shown when the delighter is within the viewport</li>
+            <li>The hint line is positioned at the defined start, which by default is <code>0.75</code></li>
+            <li>The line is removed when the bottom of the delighter is above the end position, by default also <code>0.75</code></li>
+         </ul>
+      </section>
+      <section data-delighter>
+         <h2 data-d="right">Calculating your own scroll position</h2>
+         <p>
+            If you need to get your scroll position manually, then override the <code>getScrollPosition</code> method:
+         </p>
+         <pre>
+   Delighters.getScrollPosition = function() { 
+      return $(document).scrollTop(); 
+   }</pre>
+      </section>
+      <section>
+         <h1 data-delighter class="bottom">Enjoy!</h1>
+      </section>
+    </article>
+  </body>
+</html>
