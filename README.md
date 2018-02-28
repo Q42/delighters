@@ -1,7 +1,7 @@
 Delighters
 ==========
 
-A tiny library to add CSS delighters to your page 
+Add CSS animations to delight users as they scroll down.
 By [Q42](http://q42.com).
 It was written by [Martin Kool](http://twitter.com/mrtnkl).
 
