@@ -93,17 +93,31 @@
          </ul>
       </section>
       <section data-delighter>
-         <h2 data-d="right">Calculating your own scroll position</h2>
-         <p>
-            If you need to get your scroll position manually, then override the <code>getScrollPosition</code> method:
-         </p>
-         <pre>
-   Delighters.getScrollPosition = function() { 
-      return $(document).scrollTop(); 
-   }</pre>
+        <h2 data-d="right">Customizing</h2>
+        <p>
+          By default, delighters.js intializes automatically when the DOM is ready, and with the following configuration:
+        </p>
+        <pre>
+  options = {
+    attribute:  'data-delighter',
+    classNames: ['delighter', 'started', 'ended'],
+    start:      0.75, // default start threshold
+    end:        0.75, // default end threshold
+    autoInit:   true  // initialize when DOMContentLoaded
+  }</pre>
+        <p>
+          You can customize any or all of the above properties using:
+        <pre>
+  Delighters.config({    
+    // set the default start threshold at the bottom
+    start: 1,
+    // let's call Delighters.init() manually later
+    autoInit: false 
+    // ... etc ...
+  })</pre>
       </section>
       <section>
-         <h1 data-delighter class="bottom">Enjoy!</h1>
+        <h1 data-delighter class="bottom">Enjoy!</h1>
       </section>
     </article>
   </body>

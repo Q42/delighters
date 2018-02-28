@@ -57,11 +57,25 @@ Debugging
 * The hint line is positioned at the defined start, which by default is `0.75`
 * The line is removed when the bottom of the delighter is above the end position, by default also `0.75`
 
-Calculating your own scroll position
+Customizing
 ---
-If you need to get your scroll position manually, then override the `getScrollPosition` method:
+By default, delighters.js intializes automatically when the DOM is ready, and with the following configuration:
 ```
-Delighters.getScrollPosition = function() { 
-  return $(document).scrollTop(); 
-}
+  options = {
+    attribute:  'data-delighter',
+    classNames: ['delighter', 'started', 'ended'],
+    start:      0.75, // default start threshold
+    end:        0.75, // default end threshold
+    autoInit:   true  // initialize when DOMContentLoaded
+  }
+ ```
+You can customize any or all of the above properties using:
+```
+  Delighters.config({    
+    // set the default start threshold at the bottom
+    start: 1,
+    // let's call Delighters.init() manually later
+    autoInit: false 
+    // ... etc ...
+  })
 ```
