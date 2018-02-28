@@ -2,8 +2,10 @@ Delighters
 ==========
 
 Add CSS animations to delight users as they scroll down.
-By [Q42](http://q42.com).
-It was written by [Martin Kool](http://twitter.com/mrtnkl).
+A tiny javascript library by [Q42](https://q42.com).
+It was written by [Martin Kool](https://twitter.com/mrtnkl).
+
+See the demo [here](https://q42.github.io/delighters)
 
 Usage
 ---
