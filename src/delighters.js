@@ -34,24 +34,13 @@ var Delighters = new (function() {
 		scroll();
 	})
 
-	function offset(el) {
-    var de = document.documentElement,
-    		box = el.getBoundingClientRect();
-    return {
-    	top: box.top + window.pageYOffset - de.clientTop,
-    	left: box.left + window.pageXOffset - de.clientLeft
-    }
-	}
-
 	function scroll() {
-		var pos = self.getScrollPosition(),
-				viewportHeight = window.innerHeight;
+		var viewportHeight = window.innerHeight;
 		for (var i=0; i<dels.length; i++) {
 			var del = dels[i],
-					top = offset(del.el).top,
-					bottom = top + del.el.offsetHeight,
-					factorStart = Math.max(0, 1 - (pos - top + viewportHeight) / viewportHeight),
-					factorEnd = Math.max(0, 1 - (pos - bottom + viewportHeight) / viewportHeight);
+					box = del.el.getBoundingClientRect(),
+					factorStart = box.top / viewportHeight,
+					factorEnd = box.bottom / viewportHeight;
 
 			if (del.debug) {
 				if (factorStart >= 0 && factorStart <= 1) {
@@ -83,10 +72,6 @@ var Delighters = new (function() {
 				del.el.classList.remove('ended')
 			}
 		}
-	}
-
-	this.getScrollPosition = function() {
-		return window.pageYOffset;
 	}
 
 })();
